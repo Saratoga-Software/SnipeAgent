@@ -125,7 +125,7 @@ namespace SnipeAgent
         }
 
         public List<IRequestResponse> SyncAll(SnipeItApi snipe, Asset currentAsset, Model currentModel, Manufacturer currentManufacturer,
-            Category currentCategory, Company currentCompany, StatusLabel currentStatusLabel, Location currentLocation)
+            Category currentCategory, Company currentCompany, StatusLabel currentStatusLabel, Location currentLocation, List<License> currentLicenses)
         {
             
             // Let's try to simplify the logic into a repeatable structure:
@@ -188,7 +188,7 @@ namespace SnipeAgent
             currentAsset.Company = updatedCompany;
             currentAsset.StatusLabel = updatedStatusLabel;
             currentAsset.Location = updatedLocation;
-
+            
             string currentSerial = currentAsset.Serial;
 
             Asset dbAsset = snipe.AssetManager.FindBySerial(currentSerial);
